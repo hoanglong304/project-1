@@ -1,0 +1,170 @@
+#divBody {
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    visibility: hidden;
+}
+
+/* ------------- NEW -------------- */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    touch-action: none;
+    background-color: #fff;
+    overflow: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.btn-bg .item-top {
+    opacity: 0;
+}
+
+.btn-bg:hover .item-background {
+    opacity: 0;
+}
+
+.btn-bg:hover .item-top {
+    opacity: 1;
+}
+
+.draggable-zone {
+    opacity: 0.001;
+}
+
+.draggable-zone:focus {
+    outline: none !important;
+}
+
+.btn-pointer {
+    cursor: pointer;
+}
+
+#graph-grid {
+    opacity: 0;
+}
+
+#svg_root {
+    background-color: white;
+}
+
+#buttons {
+    font-family: "RoundedMPlus";
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: "A-SOTCenturyStd-Regular";
+    src: url("../font/A-SOTCenturyStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTJMathCenturyStd-Bold";
+    src: url("../font/A-SOTJMathCenturyStd-Bold.woff") format("woff");
+}
+@font-face {
+    font-family: "rounded-mplus-1p-medium";
+    src: url("../font/rounded-mplus-1p-medium.woff") format("woff");
+}
+@font-face {
+    font-family: "rounded-mplus-1c-medium";
+    src: url("../font/rounded-mplus-1p-medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: "rounded-l-mplus-1c-medium";
+    src: url("../font/rounded-l-mplus-1c-medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: "A-SOTGirishaStd-Italic";
+    src: url("../font/A-SOTGirishaStd-Italic.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTJMathCenturyStd-Regular";
+    src: url("../font/A-SOTJMathCenturyStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "fontello";
+    src: url("../font/fontello.woff") format("woff");
+}
+
+@font-face {
+    font-family: "HiraKakuPro-W3-83pv-RKSJ-H";
+    src: url("../font/Hiragino-Kaku-Gothic-Pro.woff") format("woff");
+}
+
+@font-face {
+    font-family: "A-SOTCenturyStd-BoldItalic";
+    src: url("../font/A-SOTCenturyStd-BoldItalic.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTGothicStd-ExtraBold";
+    src: url("../font/A-SOTGothicStd-ExtraBold.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTCenturyStd-Bold";
+    src: url("../font/A-SOTCenturyStd-Bold.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTGothicStd-Light";
+    src: url("../font/A-SOTGothicStd-Light.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTCenturyStd-Italic";
+    src: url("../font/A-SOTCenturyStd-Italic.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTGothicStd-Regular";
+    src: url("../font/A-SOTGothicStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTCenturyStd-Regular";
+    src: url("../font/A-SOTCenturyStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTJMathCenturyStd-Bold";
+    src: url("../font/A-SOTJMathCenturyStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTGirishaStd-BoldItalic";
+    src: url("../font/A-SOTGirishaStd-BoldItalic.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTJMathCenturyStd-Regular";
+    src: url("../font/A-SOTJMathCenturyStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTGirishaStd-Bold";
+    src: url("../font/A-SOTGirishaStd-Bold.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTMarkStd-Regular";
+    src: url("../font/A-SOTMarkStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTGirishaStd-Italic";
+    src: url("../font/A-SOTGirishaStd-Italic.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTMathCenturyStd-Bold";
+    src: url("../font/A-SOTMathCenturyStd-Bold.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTGirishaStd-Regular";
+    src: url("../font/A-SOTGirishaStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTMathCenturyStd-Regular";
+    src: url("../font/A-SOTMathCenturyStd-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTGothicStd-Bold";
+    src: url("../font/A-SOTGothicStd-Bold.woff") format("woff");
+}
+@font-face {
+    font-family: "A-SOTPhoneticStd-Regular";
+    src: url("../font/A-SOTPhoneticStd-Regular.woff") format("woff");
+}
