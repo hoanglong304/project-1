@@ -9,15 +9,22 @@
   <link rel="stylesheet" href="./css/main.css">
   <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
   <style>
-
+    .abs{font-family:A-SOTGirishaStd-Italic, A-SukenOT Girisha Std;}
+    .abs{letter-spacing:0.25em;}
     .a,.y1{fill:none;}
-    .y1,.z{stroke:#231815;}.y1{stroke-width:1.2px;}
+    .y1,.z{stroke:#231815;}
+    S.y1.z{stroke-width:1.2px;}
     .t1{fill:#0b89dd;}
-    .w1{stroke-miterlimit:10;}
+    .w1{stroke-miterlimit:50;}
     .w1{stroke-width:4px;}
     .w1{stroke:#0b89dd;}
     .w1{fill:none;}
-    .w1{stroke:#231815;}
+    .w1{stroke:#ffffff;}
+    .w2{stroke-miterlimit:10;}
+    .w2{stroke-width:4px;}
+    .w2{stroke:#ffffff;}
+    .w2{fill:none;}
+    .w2{stroke:#000000;}
     .a,.g,.h,.l,.m,.n,.t,.u,.v,.w{fill:none;}
     .b{clip-path:url(#a);}.c{fill:#ccc;}
     .d{fill:#f2f2f2;}
@@ -27,7 +34,8 @@
     .h,.m,.n,.u,.v{stroke:#000;}.h{stroke-width:1.5px;}.i{font-size:28px;}
     .ab,.ac,.ad,.ae,.ah,.i,.o,.y{font-family:A-SOTMathCenturyStd-Regular, A SOTMathCenturyStd-Regular;}
     .j{font-size:38px;font-family:A-SOTGirishaStd-BoldItalic, A SOTGirishaStd-BoldItalic;}
-    .j,.r{font-weight:700;}.aa,.af,.ag,.j,.z{font-style:italic;}.k{clip-path:url(#d);}
+    .j,.r{font-weight:700;}
+    .k{clip-path:url(#d);}
     .l{stroke:#ff4b00;stroke-linecap:round;stroke-linejoin:round;}.l,.t{stroke-width:4px;}
     .m{stroke-width:2px;}.n{stroke-dasharray:5.94 2.97;}.o{font-size:36px;}.p{opacity:0.2;}
     .q{fill:#0b89dd;}.r{font-size:22px;font-family:A-SOTMathCenturyStd-Bold, A SOTMathCenturyStd-Bold;}
@@ -35,7 +43,8 @@
     .t{stroke:#fff;}.v{stroke-width:0.6px;}.w{stroke-width:1.2px;}
     .af,.y{fill:#231815;}.y{font-size:25.92px;}
     .aa,.af,.ag,.z{font-family:A-SOTGirishaStd-Italic, A SOTGirishaStd-Italic;}
-    .z{letter-spacing:0.25em;}.aa{letter-spacing:0em;}.ab{font-size:32px;}
+    .z{stroke-width: 1}
+    .aa{letter-spacing:0em;}.ab{font-size:32px;}
     .ac{font-size:28.8px;}.ad{font-size:19.2px;}.ae{font-size:17.28px;}.af{font-size:15.55px;}
     .ag{font-size:26px;fill:#ff4b00;}.ah{font-style:normal;}
     .ai{font-size:12px;font-family:KozGoPr6N-Regular-90ms-RKSJ-H, Kozuka Gothic Pr6N;}
@@ -129,14 +138,6 @@
     .cls-10,
     .cls-21 {
       font-weight: 700;
-    }
-
-    .cls-10,
-    .cls-29,
-    .cls-30,
-    .cls-35,
-    .cls-36 {
-      font-style: italic;
     }
 
     .cls-11 {
@@ -297,7 +298,6 @@
             </clipPath>
 <!-- <Button>********************************************</Button> -->
          <g id="buttons">
-
             
                 <symbol id="b" viewBox="0 0 146 48">
                     <rect class="b1" y="4" width="146" height="44" rx="14" />
@@ -329,48 +329,92 @@
         </defs>
         <title>パーツ-グラフ</title>
         <!-- <Button>********************************************</Button> -->
-        <g id="btn-reload-group" style="cursor: pointer;">
-            <g id="btn-reload-disabled">
-                <use width="146" height="48" transform="translate(839.57 571)" xlink:href="#e" />
+
+        <symbol id="最初に戻る-on" data-name="最初に戻る-on" viewBox="0 0 146 48">
+          <rect y="4" width="146" height="44" rx="14" style="fill: #0b89dd" />
+          <text transform="translate(39.5 32.98)" style="font-size: 18px;fill: #fafafa;font-family: rounded-l-mplus-1c-medium, rounded l-mplus-1c-medium;font-weight: 500">最初に戻る</text>
+          <path d="M26.1,21.59A6.5,6.5,0,1,1,18.5,28" style="fill: none;stroke: #fafafa;stroke-miterlimit: 10;stroke-width: 3px" />
+          <polygon points="26.68 26.55 19.3 20.44 28.28 17.11 26.68 26.55" style="fill: #fafafa" />
+        </symbol>
+<!-- group button reload -->
+
+ <!-- reload- disabled -->
+ <g class="btn-reload-element">
+  <defs>
+    <clipPath id="reload-disabled">
+      <rect width="146" height="48" style="fill: none" />
+    </clipPath>
+    <symbol id="最初に戻る-invalid" data-name="最初に戻る-invalid" viewBox="0 0 146 48">
+      <g style="clip-path: url(#clip-path-reload-disabled)">
+        <g style="clip-path: url(#clip-path-reload-disabled)">
+          <rect y="4" width="146" height="44" rx="14" style="fill: #ccc" />
+          <g>
+            <rect x="1.5" y="1.5" width="143" height="41" rx="12.5" style="fill: #f2f2f2" />
+            <path
+              d="M132,3a11,11,0,0,1,11,11V30a11,11,0,0,1-11,11H14A11,11,0,0,1,3,30V14A11,11,0,0,1,14,3H132m0-3H14A14,14,0,0,0,0,14V30A14,14,0,0,0,14,44H132a14,14,0,0,0,14-14V14A14,14,0,0,0,132,0Z"
+              style="fill: #b3b3b3" />
+          </g>
+        </g>
+        <text transform="translate(39.5 28.98)" style="font-size: 18px;fill: #b3b3b3;font-family: rounded-l-mplus-1c-medium, 'Rounded-L M+ 1c';font-weight: 500">最初に戻る</text>
+        <g style="clip-path: url(#clip-path)">
+          <path d="M26.1,17.59A6.5,6.5,0,1,1,18.5,24" style="fill: none;stroke: #b3b3b3;stroke-miterlimit: 10;stroke-width: 3px" />
+          <polygon points="26.68 22.55 19.3 16.44 28.28 13.11 26.68 22.55" style="fill: #b3b3b3" />
+        </g>
+      </g>
+    </symbol>
+  </defs>
+ 
+</g>
+
+<!-- reload-inactive -->
+<g class="btn-reload-element" id="btn-reload-inactive"  transform="translate(839.57 571)">
+  <defs>
+    <symbol id="最初に戻る-off" data-name="最初に戻る-off" viewBox="0 0 146 48">
+      <rect y="4" width="146" height="44" rx="14" style="fill: #ccc" />
+      <g>
+        <rect x="1.5" y="1.5" width="143" height="41" rx="12.5" style="fill: #fafafa" />
+        <path
+          d="M132,3a11,11,0,0,1,11,11V30a11,11,0,0,1-11,11H14A11,11,0,0,1,3,30V14A11,11,0,0,1,14,3H132m0-3H14A14,14,0,0,0,0,14V30A14,14,0,0,0,14,44H132a14,14,0,0,0,14-14V14A14,14,0,0,0,132,0Z"
+          style="fill: #0b89dd" />
+      </g>
+      <rect width="146" height="48" style="fill: none" />
+      <text transform="translate(39.5 28.98)" style="font-size: 18px;fill: #0b89dd;font-family: rounded-l-mplus-1c-medium, 'Rounded-L M+ 1c';font-weight: 500">最初に戻る</text>
+      <path d="M26.1,17.59A6.5,6.5,0,1,1,18.5,24" style="fill: none;stroke: #0b89dd;stroke-miterlimit: 10;stroke-width: 3px" />
+      <polygon points="26.68 22.55 19.3 16.44 28.28 13.11 26.68 22.55" style="fill: #0b89dd" />
+    </symbol>
+  </defs>
+</g>
+
+
+<!-- group -->
+        <g id="group-reload"  style="cursor: pointer;">
+<!-- reload inActive -->
+          <g class="btn-reload-element" id="btn-reload-inActive" transform="translate(846.12 571)">
+            <g id="buttons">
+              <use width="146" height="48" xlink:href="#最初に戻る-on" />
             </g>
-            <g id="btn-reload-active">
-                <use width="146" height="48" transform="translate(839.57 571)" xlink:href="#b" />
+          </g>
+<!-- reload disabled -->
+          <g class="btn-reload-element"  id="btn-reload-disabled"  transform="translate(846.12 571)" data-name="Layer 2">
+            <g id="buttons">
+              <use width="146" height="48" xlink:href="#最初に戻る-invalid" />
             </g>
+          </g>
+<!-- reload active -->
+          <g class="btn-reload-element" id="btn-reload-active" transform="translate(846.12 571)" data-name="Layer 2">
+            <g id="buttons">
+              <use width="146" height="48" xlink:href="#最初に戻る-off" />
+            </g>
+          </g>
+
+          
         </g>
       
         
-      
-        
-      <circle id="point-left" fill="red" r="0"></circle>
-      <circle id="point-right" fill="red" r="0"></circle>
-      <circle id="point-top-left" fill="red" r="0"></circle>
-      <circle id="point-top-right" fill="red" r="0"></circle>
-        
-
-
-
-  <g style="cursor: pointer;">
-    <g id="check">
-      <path style="padding: 20px;" class="q" d="M794,433.26a2,2,0,0,1,2,2v16.48a2,2,0,0,1-2,2H777a2,2,0,0,1-2-2V435.26a2,2,0,0,1,2-2h17m0-3H777a5,5,0,0,0-5,5v16.48a5,5,0,0,0,5,5h17a5,5,0,0,0,5-5V435.26a5,5,0,0,0-5-5Z" />
-      <polyline class="w1"  style="fill:none;stroke:rgb(255, 255, 255)" points="778.45 439.6 783.28 447.6 793.09 437.15"/>
-    </g>
-      
-    <!-- CheckBox -->
-    <g  id="unCheck">
-      <path  class="q" d="M794,433.26a2,2,0,0,1,2,2v16.48a2,2,0,0,1-2,2H777a2,2,0,0,1-2-2V435.26a2,2,0,0,1,2-2h17m0-3H777a5,5,0,0,0-5,5v16.48a5,5,0,0,0,5,5h17a5,5,0,0,0,5-5V435.26a5,5,0,0,0-5-5Z" />
-      <polyline  class="w1" points="778.45 439.6 783.28 447.6 793.09 437.15"/>
-    </g>
-    <!-- CheckBox -->
-  </g>
-    
-
-     
-      
-
-
-
-
-
+      <g id="point-left"></g>
+      <g id="point-right"></g>
+      <g id="point-top-left"></g>
+      <g id="point-top-right" ></g>
 
         <!-- thanh cuộn -->
         <g id="seekbar-group">
@@ -389,12 +433,12 @@
                 <text class="i" transform="translate(442.82 537.41)">3</text>
                 <text class="i" transform="translate(562.82 537.41)">4</text>
                 <text class="i" transform="translate(682.82 537.41)">5</text>
-                <text class="j" transform="translate(58.69 565.38)">r</text>
+                <text class="j" transform="translate(35 565.38)">r</text>
                 <g class="k">
                 <line class="cls-18" id="line_left" style="fill:none;stroke:rgb(248, 39, 39);stroke-width:3" />
                 <line class="cls-18" id="line_right" style="fill:none;stroke:rgb(248, 39, 39);stroke-width:3" />
-                <polygon id="polygon" style="fill: #f0de83" />
-                <polyline id="red-line" style="fill:none;stroke:rgb(241, 5, 5);stroke-width:3" />
+                <polygon id="polygon" style="fill: #ffff80;" />
+                <polyline id="red-line" style="fill:none;stroke:#ff4b00;stroke-width:4" />
                 </g>
                 <line id="line-m" class="m" x1="90" y1="443.89" x2="673.7" y2="443.89" />
                 <path d="M670.11,443.89l-4.39-7.21.25-.16,11.75,4.67,12.28,2.7-12.28,2.7L666,451.26l-.25-.12Z" />
@@ -419,9 +463,29 @@
                 </g>
     
         </g>
-        
+
+  
+
+    <g id="check"  style="cursor: pointer;">
+      <path style="padding: 20px;" class="q" d="M794,433.26a2,2,0,0,1,2,2v16.48a2,2,0,0,1-2,2H777a2,2,0,0,1-2-2V435.26a2,2,0,0,1,2-2h17m0-3H777a5,5,0,0,0-5,5v16.48a5,5,0,0,0,5,5h17a5,5,0,0,0,5-5V435.26a5,5,0,0,0-5-5Z" />
+      <polyline  class="w1" style="fill:none;stroke:rgb(255, 255, 255)" points="778.45 439.6 783.28 447.6 793.09 437.15"/>
+     
+        <rect x="770" y="430" width="30" height="30" opacity="0" />
+    </g>  
+    <!-- CheckBox -->
+  <g class="group-check" style="cursor: pointer;">
+       <g  id="unCheck">
+      <path  class="q" d="M794,433.26a2,2,0,0,1,2,2v16.48a2,2,0,0,1-2,2H777a2,2,0,0,1-2-2V435.26a2,2,0,0,1,2-2h17m0-3H777a5,5,0,0,0-5,5v16.48a5,5,0,0,0,5,5h17a5,5,0,0,0,5-5V435.26a5,5,0,0,0-5-5Z" />
+      <polyline  class="w2" points="778.45 439.6 783.28 447.6 793.09 437.15"/>
+      <rect x="770" y="430" width="30" height="30" opacity="0" />
+    </g>
+
+    
+    <!-- CheckBox -->
+  </g>
+       
       <g id="check-box" style="cursor: pointer;">
-        <rect class="a" x="772" y="430" width="220" height="27" />
+        <rect class="a" x="772" y="430" width="300" height="27" />
         <text class="r" transform="translate(807.94 450.01)">
             m-a
             <tspan class="s" x="55" y="0.95">≦</tspan>
@@ -443,10 +507,10 @@
         <polygon class="z" points="827.28 188.01 824.66 180.43 825.98 179.03 828.18 185.38 827.28 188.01" />
         <text class="y" transform="translate(837.52 188.28)">
             2
-            <tspan class="z" x="13.3" y="0">p</tspan>
+            <tspan class="abs" x="12.96" y="0">p</tspan>
             <tspan class="aa" x="34.52" y="0">r</tspan>
         </text>
-        <text class="ab" transform="translate(720.63 170.38)">f(x)=</text>
+        <text class="ab" transform="translate(737 170.38)">f(x)=</text>
         <text class="ab" transform="translate(899.82 170.38)">e</text>
         <text class="ac" transform="translate(848.89 151.62)">1</text>
         <text class="ad" transform="translate(915.64 159.55)">-</text>
@@ -457,7 +521,7 @@
             <tspan class="af" x="8.86" y="0">r</tspan>
         </text>
           <text class="ae" transform="translate(975.44 161.74) scale(0.58)">2</text>
-          <text  id="sm" class="ag" transform="translate(447.99 293.21)">r =<tspan class="ah" x="8.5" y="0"></tspan></text>
+          <text  id="sm" class="ag" transform="translate(447.99 293.21)"><tspan class="ah" x="8.5" y="0"></tspan></text>
         <text />
     </svg>
 

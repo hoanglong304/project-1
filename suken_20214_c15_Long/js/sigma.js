@@ -5,7 +5,7 @@ const delay = (ms) => {
 
 const g_state = {
     sigma: 1,
-    is_turn: true
+    is_turn: false
 };
 
 const C15 = {
@@ -46,6 +46,7 @@ const C15 = {
         
             showElement("#btn-reload-active",true)
         }
+        
 
         let points = "";
         let points_1 = "";
@@ -56,7 +57,7 @@ const C15 = {
 
         let rightSVG1= C15.mapCoordinateToSVG({x:C15.line_right_x(-0.7),y:C15.line_right_y(0) });
         let rightSVG2= C15.mapCoordinateToSVG({x:C15.line_right_x(-0.7),  y:C15.line_right_y(0.31) });
-      
+
 
         
         for (i = -10; i <= 10; i += C15.step) {
@@ -79,6 +80,7 @@ const C15 = {
 
         const scrollBar = $("#scrollPoint");
         scrollBar.attr("transform", `translate(${(g_state.sigma / 5) * 600 -120} 0)`);
+    
 
         const pointTopLeft = $("#point-top-left")
         pointTopLeft.attr("cx",leftSVG1.x);
@@ -104,18 +106,20 @@ const C15 = {
 
         $("#line_right").attr("x1",rightSVG1.x).attr("y1",rightSVG1.y).attr("x2",rightSVG2.x).attr("y2",rightSVG2.y)
           $("#polygon").attr("points",rightSVG1.x+" "+rightSVG2.y+" "+ points_1 +leftSVG1.x+" "+leftSVG2.y+" "+ leftSVG1.x+" "+leftSVG1.y +" "+rightSVG1.x+" "+rightSVG1.y);
-        }else{
+        }
+        else{
             $("#polygon").attr("points",`${0}`);
             $("#line_right").attr("x1",0).attr("y1",0).attr("x2",0).attr("y2",0)
             $("#line_left").attr("x1",0).attr("y1",0).attr("x2",0).attr("y2",0)
         }
            
 
-            let sigma = $("#sm");
+            let sigmas = $("#sm");
             
-            sigma.attr(`transform`,`translate( ${leftSVG1.x +40} ${leftSVG1.x - 150})`)
-            
-            document.getElementById("sm").textContent ="r="+ (Math.round( g_state.sigma * 100)/100).toFixed(1);;
+            sigmas.attr(`transform`,`translate( ${leftSVG1.x +40} ${leftSVG1.x - 150})`)
+           
+            const {sigma} = g_state ;
+            document.getElementById("sm").textContent ="r = "+ parseFloat((Math.round(sigma * 100)/100).toFixed(1));
 	              
     },
        

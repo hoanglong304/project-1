@@ -160,7 +160,6 @@ const config = () => {
         4: 4,
         5: 5,
     }[CONFIG.selected_pattern];
-
 };
 
 var itvKeepSVGNotMove;
@@ -292,9 +291,10 @@ $(document).ready(function () {
     Draw.init();
     C15.render();
     
-    // showElement("#btn-reload-active",true );
-    // showElement("#btn-reload-disabled", true);
-
+    showElement(".btn-reload-element", true);
+    showElement(".group-check", false);
+    
+ 
     [
         ["start", ["inactive"]],
         ["reload", ["disabled"]],
@@ -325,16 +325,21 @@ $(document).ready(function () {
             g_eventId += 1;
             g_latestMousePress = `${btnName}-inactive`;
 
-            animateButtonEffect(`#btn-${btnName}-group`, true);
+            animateButtonEffect(`#group-${btnName}`, true);
         });
         if(g_state.sigma >0){
             g_latestMousePress = `btn-reload-inactive`;
         }
     });
 
-    $(`#btn-reload-active`).on("mousedown", function (e) {
-        g_latestMousePress = `reload-disabled`;
+    $("#btn-reload-active").on("mousedown", function (event) {
+        event.preventDefault();
+        showElement(".btn-reload-element", false);
+        showElement("#btn-reload-inActive", true);
+        animateButtonEffect("#group-reload", true);
+        g_latestMousePress = "reload-inactive";
     });
+
 
     $(`#unCheck`).on("mouseup", function (e) {
         g_latestMousePress = `unCheck-box`;
@@ -352,6 +357,7 @@ $(document).ready(function () {
             g_latestMousePress = `check-box`;
         }
       });
+   
     $(document).on("mouseup", function (e) {
         g_isMouseDown = false;
 
@@ -361,6 +367,7 @@ $(document).ready(function () {
             case "check-box":
                 showElement("#unCheck",true)
                 showElement("#check", true)
+                showElement(".btn-reload-element", true);
                 g_state.is_turn = true
                 C15.render();
                 break;
@@ -379,46 +386,48 @@ $(document).ready(function () {
                 showElement("#btn-reload-inactive", true);
               
                 break;
-            case "reload-disabled":
-                showElement("#btn-reload-disabled", true);
-                showElement("#btn-reload-active",false)
-                g_state.sigma = 1;
-                C15.render();
+            case "reload-inactive":
+                animateButtonEffect("#group-reload", false);
+                setTimeout(() => {
+                    showElement(".btn-reload-element, #unCheck", false);
 
-                break;
-            case  "reload-inactive":
+                    showElement(
+                        "#btn-start-inactive, #btn-back-disabled, #btn-reload-disabled",
+                        true
+                    ); // hien cac nut (cach viet thu gon nhieu phan tu thay vi viet day du nhu tren)
+                    g_state.sigma = 1;
+                    g_state.is_turn = false;
+                    C15.render();
 
-                showElement("#btn-reload-active",true)
-               
-                
+                }, 100);
                 break;
-                case "back-inactive":
-                    animateButtonEffect("#btn-reload-group", false, () => {
-                        [
-                            ["start", ["inactive"]],
-                            ["reload", ["disabled"]],
-                        ].forEach((btn) => {
-                            btn[1].forEach((status) => {
-                                const btnId = `#btn-${btn[0]}-${status}`;
-                                showElement(btnId, true);
-                            });
-                        });
-    
-                        [
-                            ["start", ["active", "disabled"]],
-                            ["reload", ["active", "inactive"]],
-                            ["back", ["active", "inactive", "disabled"]],
-                            ["pause", ["active", "inactive", "disabled"]],
-                            ["resume", ["active", "inactive", "disabled"]],
-                        ].forEach((btn) => {
-                            btn[1].forEach((status) => {
-                                const btnId = `#btn-${btn[0]}-${status}`;
-                                showElement(btnId, false);
-                            });
+            case "back-inactive":
+                animateButtonEffect("#btn-reload-group", false, () => {
+                    [
+                        ["start", ["inactive"]],
+                        ["reload", ["disabled"]],
+                    ].forEach((btn) => {
+                        btn[1].forEach((status) => {
+                            const btnId = `#btn-${btn[0]}-${status}`;
+                            showElement(btnId, true);
                         });
                     });
-                   g_state.t = 0
-                   break;
+
+                    [
+                        ["start", ["active", "disabled"]],
+                        ["reload", ["active", "inactive"]],
+                        ["back", ["active", "inactive", "disabled"]],
+                        ["pause", ["active", "inactive", "disabled"]],
+                        ["resume", ["active", "inactive", "disabled"]],
+                    ].forEach((btn) => {
+                        btn[1].forEach((status) => {
+                            const btnId = `#btn-${btn[0]}-${status}`;
+                            showElement(btnId, false);
+                        });
+                    });
+                });
+                g_state.t = 0
+                break;
                 
 
             default:
@@ -462,7 +471,7 @@ $(document).ready(function () {
     let fnDrag = (event) =>{
         event.stopPropagation();
 
-        var layoutLoc = SVGLib.getTranslate("#scrollbar");
+        var layoutLoc = SVGLib.getTranslate("#seekbar-group");
         var curPos = cursorPoint(event);
 
         var x = curPos.x - layoutLoc.left;
@@ -472,11 +481,27 @@ $(document).ready(function () {
         if (percent < 0) percent = 0;
         if (percent > 1) percent = 1;
 
-        g_state.sigma = percent * 5;
-        C15.render();
+    //     g_state.sigma = percent * 5;
+    //     C15.render();
 
-        keepDraggableSvgNotMove();
-    };
+    //     keepDraggableSvgNotMove();
+    // };
+    if (g_state.sigma <= 0.1) {
+        g_state.sigma = 0.0034677579993841945;
+        C15.render();
+    }
+
+    //0,1,2,3,4,5 node attraction
+    if (g_state.sigma >= 0.9 && g_state.sigma <= 1.1) { g_state.sigma = 1; C15.render(); }
+    if (g_state.sigma >= 1.9 && g_state.sigma <= 2.1) { g_state.sigma = 2; C15.render(); }
+    if (g_state.sigma >= 2.9 && g_state.sigma <= 3.1) { g_state.sigma = 3; C15.render(); }
+    if (g_state.sigma >= 3.9 && g_state.sigma <= 4.1) { g_state.sigma = 4; C15.render(); }
+    if (g_state.sigma >= 4.9) { g_state.sigma = 5; C15.render(); }
+
+
+    C15.render();
+}
+
 
     $("#scrollbar").on("mousedown", function(event){
         fnDrag(event);
@@ -488,6 +513,7 @@ $(document).ready(function () {
                 event.stopPropagation();
             },
             drag: function drag(event, ui) {
+               
                 event.stopPropagation();
 
                 var layoutLoc = SVGLib.getTranslate("#scrollbar");
@@ -497,13 +523,16 @@ $(document).ready(function () {
                 var y = -(curPos.y - layoutLoc.top);
 
                 let percent = (x - x0) / (x1 - x0);
+               
+                
                 if (percent < 0) percent = 0;
                 if (percent > 1) percent = 1;
-
+                console.log(percent)
                 g_state.sigma = percent * 5;
+              
                 C15.render();
-
                 keepDraggableSvgNotMove();
+                fnDrag(event);
             },
             stop: function stop(event) {
                 event.stopPropagation();
@@ -511,5 +540,8 @@ $(document).ready(function () {
             },
         })
         .css("position", "absolute"); // play
+
+        
 });
+
 
